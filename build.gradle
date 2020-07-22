@@ -156,26 +156,20 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.assertj:assertj-core:3.11.1'
-    testImplementation 'org.mockito:mockito-core:1.9.5'
-    testImplementation 'org.powermock:powermock-api-mockito:1.6.1'
-    testImplementation 'org.powermock:powermock-module-junit4:1.6.1'
-    testImplementation 'org.powermock:powermock-module-junit4-rule:1.6.1'
-    testImplementation 'org.powermock:powermock-classloading-xstream:1.6.1'
+    testImplementation 'org.mockito:mockito-inline:2.8.9'
+    testImplementation 'org.powermock:powermock-api-mockito2:2.0.2'
+    testImplementation 'org.powermock:powermock-module-junit4:2.0.2'
+    testImplementation 'org.powermock:powermock-module-junit4-rule:2.0.2'
+    testImplementation 'org.powermock:powermock-classloading-xstream:2.0.2'
 
-    testImplementation 'androidx.test:core:1.1.1-alpha02'
-    androidTestImplementation 'com.android.support:multidex:1.0.3'
-    androidTestImplementation 'com.android.support:multidex-instrumentation:1.0.3'
-    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
-    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestImplementation ('org.assertj:assertj-core:1.7.1') {
-        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    testImplementation 'androidx.test:core:1.2.0'
+    testImplementation ('org.robolectric:robolectric:4.2') {
+        exclude group: 'com.google.protobuf', module: 'protobuf-java'
     }
-    androidTestImplementation ('com.squareup.assertj:assertj-android:1.1.1') {
-        exclude group: 'org.hamcrest',        module: 'hamcrest-core'
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    testImplementation 'org.robolectric:robolectric:4.2'
     testImplementation 'org.robolectric:shadows-multidex:4.2'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Loki
     // Local:
@@ -248,14 +242,14 @@ android {
 
         resConfigs autoResConfig()
 
-        splits {
+        /*splits {
             abi {
                 enable true
                 reset()
                 include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
                 universalApk true
             }
-        }
+        }*/
     }
 
     compileOptions {
